@@ -1,0 +1,78 @@
+
+.signup-heading-div{
+    margin-bottom: 20px;
+}
+.SignDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 10px;
+    
+}
+.SignDiv-Password{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+
+    
+}
+.SignIn-input {
+    width: 250px;
+    height: 25px;
+    border-top:none ;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 10px;
+    outline: none;
+    
+    
+}
+.SignIn-password{
+    width: 250px;
+    height: 25px;
+    border-top:none ;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 10px;
+    outline: none;
+
+}
+.SignIn-input:focus{
+    border-bottom: 2px solid violet;
+    outline: none;
+}
+.SignIn-password:focus{
+    border-bottom: 2px solid violet;
+    outline: none;
+}
+.SignIn-btn{
+    width: 250px;
+    background-color: transparent;
+    border: 1px solid silver;
+    border-radius: 25%;
+    background-color: violet;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-radius: 3px;
+}
+.SignIn-btn:hover{
+    background-color: violet;
+    color: white;
+    cursor: pointer;
+
+}
+.forgot-password-div{
+    display: flex;
+   justify-content: right;
+    padding: 0;
+    margin: 0px;
+}
+.forgot-password-link{
+    margin-right: 15px;
+    font-size: small;
+    text-decoration: none;
+
+}

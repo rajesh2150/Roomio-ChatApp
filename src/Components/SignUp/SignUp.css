@@ -1,0 +1,99 @@
+.signup-div{
+    background-color: transparent;
+    width: 300px;
+    height: 500px;
+    margin:12% auto;
+    
+}
+@media(min-width:481px){
+    .signup-div{
+        margin: 5.5% auto;
+    }
+}
+.FormDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    
+}
+.FormDiv span{
+    margin:0px;
+
+}
+.form{
+    margin: 25px;
+}
+
+.SignUp-heading h3{
+    margin: 0px;
+    padding: 0PX;
+}
+.input{
+    width: 250px;
+    height: 25px;
+    border-top:none ;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 10px;
+    outline: none;
+    
+    
+}
+.input:focus{
+    border-bottom: 2px solid violet;
+    outline: none;
+}
+.span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.301);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.SignUp-btn{
+    width: 250px;
+    background-color: transparent;
+    border: 1px solid silver;
+    border-radius: 25%;
+    background-color: violet;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+ .SignUp-btn:hover{
+    background-color: violet;
+    color: white;
+    cursor: pointer;
+
+}
+.Login-Apps-Div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.Login-Apps-Div svg{
+    margin: 8px;
+}
+svg{
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    
+    
+}
+.Or-SignUp{
+    font-size: small;
+    margin-bottom: 0px;
+}
+p{
+    margin-top: 50px;
+}
+.NavLink{
+    text-decoration: none;
+
+}
