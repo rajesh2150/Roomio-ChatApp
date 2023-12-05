@@ -6,31 +6,78 @@ import {
  FaEye
 } from "react-icons/fa";
 import {NavLink} from 'react-router-dom';
-import { auth } from '../Firebase/Firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {useNavigate} from 'react-router-dom'
+import { auth, faceBookAUth, googleAuth, twitterAuth } from '../Firebase/Firebase';
+import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import {useNavigate} from 'react-router-dom';
 const SignUp = () => {
   const history=useNavigate()
   const [userMail,setUserMail]=useState('')
   const [createPassword,setPassword]=useState('')
   const [checkPassword,setCheckPassword]=useState('')
   const [confirmPassword,setConfirmPassword]=useState('')
+  const [errorMsg,setErrorMsg]=useState(null)
+
+  // if(regex.match(userMail) && checkPassword==createPassword){
+  //   setDisableBtn(false)
+  // }
   const handleSignIn=async()=>{
+    console.log('clicked')
+   
     try{
-      if(checkPassword==createPassword){
+      if(userMail && checkPassword==createPassword){
         setConfirmPassword(checkPassword)
-        console.log(userMail,confirmPassword)
         await createUserWithEmailAndPassword(auth,userMail,confirmPassword);
+        console.log(userMail,confirmPassword)
         setUserMail('')
         setCheckPassword('')
         alert('Account Created Successully...')
         history('/home')
         
       }
+      else{
+        setErrorMsg('Enter valid Mail/Password ')
+      }
     }catch(err){
-      console.log(err)
+      setErrorMsg(err.code)
+      
     }
 
+  }
+
+  // google auth provider
+
+  const handleSignUpUsingGoogleAuth=async()=>{
+    try{
+      console.log('selected google auth')
+      await signInWithPopup(auth,googleAuth)
+      history('/home')
+
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  const handleSignUpUsingTwitterAuth=async()=>{
+    try{
+      console.log('selected Twitter auth')
+      await signInWithPopup(auth,twitterAuth)
+      history('/home')
+
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  const handleSignUpUsingFaceBookAuth=async()=>{
+    try{
+      console.log('selected FaceBook auth')
+      await signInWithPopup(auth,faceBookAUth)
+      history('/home')
+
+    }
+    catch(err){
+      console.log(err)
+    }
   }
  
   return (
@@ -38,13 +85,14 @@ const SignUp = () => {
       <div className="SignUp-heading">
         <h2>Sign Up</h2>
       </div>
+      {errorMsg && <p style={{margin:"10px",color:"red"}}>{errorMsg}</p>}
       <div className="form">
         {/* <label>Email</label> */}
         <div className="FormDiv">
           <span className="span">
             <FaUser size={15} />
           </span>
-          <input className="input" required type="text" placeholder="Email" onChange={(e)=>setUserMail(e.target.value)}/>
+          <input className="input" required type="email" placeholder="Email" onChange={(e)=>setUserMail(e.target.value)}/>
         </div>
         <br />
         {/* <label>Password</label> */}
@@ -61,11 +109,14 @@ const SignUp = () => {
           <input type="password" className="input" required placeholder="Confirm Password"  onChange={(e)=>setCheckPassword(e.target.value)}/>
         </div>
         <br />
-        <button className="SignUp-btn" onClick={()=>handleSignIn()}>Sign Up</button>
+        <button className="SignUp-btn"   onClick={()=>handleSignIn()}>Sign Up</button>
         <br />
         <span className="Or-SignUp">Or Sign Up Using</span>
         <div className="Login-Apps-Div">
+
+          {/* FaceBook */}
           <svg
+            onClick={()=>handleSignUpUsingFaceBookAuth()}
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -78,7 +129,10 @@ const SignUp = () => {
               fill="#fff"
               d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"></path>
           </svg>
+
+          {/* Twitter */}
           <svg
+          onClick={()=>handleSignUpUsingTwitterAuth()}
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -86,7 +140,10 @@ const SignUp = () => {
             viewBox="0 0 50 50">
             <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
           </svg>
+
+          {/* Google */}
           <svg
+          onClick={()=>handleSignUpUsingGoogleAuth()}
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -108,8 +165,8 @@ const SignUp = () => {
           </svg>
         </div>
       </div>
-        <p className="SignIn-option">Or Sign In Using</p><br/>
-        <NavLink to={'/SignIn'} className="NavLink">Sign In</NavLink>
+        <p className="SignIn-option">Have an Account?</p>
+        <NavLink to={'/'} className="NavLink">Sign In</NavLink>
     </div>
   );
 };

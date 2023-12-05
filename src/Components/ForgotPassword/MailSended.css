@@ -1,0 +1,19 @@
+.mailDiv{
+margin-top: 20%;
+}
+.paragraph{
+    margin: 0px;
+    margin-bottom: 50px;
+}
+.BackTo-SignIn-btn{
+    padding: 8px;
+    background-color: violet;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+@media(max-width:480px){
+    .mailDiv{
+        margin-top: 50%;
+    }
+}

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 margin: auto;
+border-color: lightgray;
 }
 *{
   margin: 0px;

@@ -39,6 +39,7 @@
     outline: none;
     
     
+    
 }
 .input:focus{
     border-bottom: 2px solid violet;
@@ -63,10 +64,14 @@
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 3px;
-}
- .SignUp-btn:hover{
-    background-color: violet;
     color: white;
+    cursor: pointer;
+}
+
+ .SignUp-btn:active{
+    background-color: violet;
+    color: red;
+    
     cursor: pointer;
 
 }
@@ -92,6 +97,7 @@ svg{
 }
 p{
     margin-top: 50px;
+    font-size: 14px;
 }
 .NavLink{
     text-decoration: none;

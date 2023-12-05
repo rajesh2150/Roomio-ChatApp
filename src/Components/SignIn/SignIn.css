@@ -55,8 +55,9 @@
     background-color: violet;
     padding: 5px;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-radius: 3px;
+    cursor: pointer;
 }
 .SignIn-btn:hover{
     background-color: violet;
@@ -75,4 +76,15 @@
     font-size: small;
     text-decoration: none;
 
+}
+
+.Or-SignIn{
+    margin-bottom: 30px;
+}
+.signIn-Auth{
+    margin-top: 20px;
+}
+.sign-using-pTag{
+    margin: 0px;
+    margin-top: 20px;
 }
