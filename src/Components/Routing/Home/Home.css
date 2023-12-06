@@ -19,11 +19,13 @@ padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
  height: 90px;
   background-color: lightcoral;
   position: sticky;
   left: 0px;
   top: 0px;
+  z-index: 500;
 }
 .logout-div {
   display: flex;
@@ -33,11 +35,40 @@ padding: 8px;
 .userImage{
     height: 40px;
     width: 40px;
+    margin-top: 6px;
     margin-right: 5px;
     border-radius: 50%;
+}
+h2{
+  cursor: pointer;
 }
 .p{
     color: black;
     margin: 0px;
     margin-right: 15px;
+}
+.roomDiv{
+  margin-top: 10%;
+}
+.roomInput{
+  margin-top: 10px;
+  width: 200px;
+  height: 30px;
+  border-radius:5px ;
+}
+.roomInput::placeholder{
+  text-align: center;
+}
+.enterChatBtn{
+  padding: 5px;
+  background-color: transparent;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.enterChatBtn:hover{
+  background-color: violet;
+  color: white;
 }

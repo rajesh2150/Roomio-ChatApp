@@ -43,6 +43,7 @@ const Home = () => {
     <>
       <div className="Main-Div">
         <div>
+          
           <h2>Chat Connect</h2>
         </div>
         <div className="logout-div">
@@ -56,15 +57,18 @@ const Home = () => {
       {room ? (
         <Chat room={room} displayName={displayName} displayImage={displayImage}/>
       ) : (
-        <>
-        <h2>Enter Room Id</h2>
+        
+        <div className="roomDiv">
+        
+        <h2>Enter Room ID</h2>
           <input
+            className="roomInput"
             type="text"
-            placeholder="Enter Room ID"
+            placeholder="Enter/Create Room ID"
             ref={roomInputRef}
           /><br/>
-          <button onClick={()=>setRoom(roomInputRef.current.value)} type="submit">Enter Chat</button>
-        </>
+          <button className="enterChatBtn" onClick={()=>setRoom(roomInputRef.current.value)} type="submit">Enter Chat</button>
+        </div>
       )}
     </>
   );

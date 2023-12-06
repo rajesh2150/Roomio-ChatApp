@@ -10,6 +10,8 @@ import {
   orderBy,
 } from "firebase/firestore";
 import './Chat.css'
+import {FaArrowLeft} from 'react-icons/fa'
+import {useNavigate} from 'react-router-dom'
 
 const Chat = ({ room, displayName, displayImage }) => {
   //new msg
@@ -57,10 +59,19 @@ const Chat = ({ room, displayName, displayImage }) => {
     scroll.current.scrollIntoView({behaviour:'smooth'})
   };
 
+  //history
+ const history=useNavigate()
+const handleLeftArrow2=()=>{
+  history("/home")
+}
   return (
     <>
-        <h2 className="roomName">Welcome To :{room.toUpperCase()}</h2>
-      {/* total messages */}
+ 
+   
+   
+    <h2 className="roomName"> Welcome To :{room.toUpperCase()}</h2>
+     
+       {/* total messages */}
 
         <div className="msgs">
         {messages.map((msg) => (
