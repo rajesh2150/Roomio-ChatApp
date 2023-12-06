@@ -102,6 +102,7 @@ const handleLeftArrow2=()=>{
           <button className="msg-send-btn" type="submit">Send</button>
         </form>
       </div>
+      
     </>
   );
 };
