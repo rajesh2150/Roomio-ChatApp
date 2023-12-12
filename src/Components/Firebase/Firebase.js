@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth,GoogleAuthProvider,TwitterAuthProvider,FacebookAuthProvider } from "firebase/auth";
-import {getFirestore} from 'firebase/firestore'
+import {getFirestore} from 'firebase/firestore';
+import {getStorage} from 'firebase/storage'
 const firebaseConfig = {
   apiKey: "AIzaSyBCAuVLysfydu-aJGChyq0V1_x6vq5KF9Q",
   authDomain: "chat-app-c62db.firebaseapp.com",
@@ -16,6 +17,7 @@ export const auth = getAuth(app)
 
 export const db = getFirestore(app)
 
+export const storge=getStorage(app)
 // google auth provider
 export const googleAuth=new GoogleAuthProvider()
 

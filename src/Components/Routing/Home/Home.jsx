@@ -40,11 +40,11 @@ const Home = () => {
 
  
   return (
-    <>
+    <div className="homeDiv">
       <div className="Main-Div">
         <div>
           
-          <h2>Chat Connect</h2>
+          <h2 className="chatConnect-h2">Roomio</h2>
         </div>
         <div className="logout-div">
           <p className="p">{user ? user : auth?.currentUser?.email}</p>
@@ -55,7 +55,7 @@ const Home = () => {
         </div>
       </div>
       {room ? (
-        <Chat room={room} displayName={displayName} displayImage={displayImage}/>
+        <Chat room={room}  displayName={displayName} displayImage={displayImage}/>
       ) : (
         
         <div className="roomDiv">
@@ -67,10 +67,10 @@ const Home = () => {
             placeholder="Enter/Create Room ID"
             ref={roomInputRef}
           /><br/>
-          <button className="enterChatBtn" onClick={()=>setRoom(roomInputRef.current.value)} type="submit">Enter Chat</button>
+          <button className="enterChatBtn" onClick={()=>{room=="" ?alert("please Enter A Valid ID"):setRoom(roomInputRef.current.value)}} type="submit">Enter Chat</button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

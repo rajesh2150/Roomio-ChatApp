@@ -10,8 +10,9 @@ import {
   orderBy,
 } from "firebase/firestore";
 import './Chat.css'
-import {FaArrowLeft} from 'react-icons/fa'
-import {useNavigate} from 'react-router-dom'
+import {FaArrowLeft} from 'react-icons/fa';
+import { storge } from "../../Firebase/Firebase";
+import {ref,uploadBytes,getDownloadURL} from 'firebase/storage'
 
 const Chat = ({ room, displayName, displayImage }) => {
   //new msg
@@ -24,6 +25,8 @@ const Chat = ({ room, displayName, displayImage }) => {
 
   //scroll to down
   const scroll=useRef()
+  //fileUpload
+const [file,setFile]=useState("")
   
   useEffect(() => {
     const queryMessages = query(
@@ -50,7 +53,7 @@ const Chat = ({ room, displayName, displayImage }) => {
       user: displayName,
       room,
       displayImage,
-      uid:auth.currentUser.uid
+      uid:auth.currentUser.uid,
 
     
       
@@ -59,17 +62,38 @@ const Chat = ({ room, displayName, displayImage }) => {
     scroll.current.scrollIntoView({behaviour:'smooth'})
   };
 
-  //history
- const history=useNavigate()
+  //left arrow handle 
 const handleLeftArrow2=()=>{
-  history("/home")
+  console.log('clicked')
+  window.location.reload()
+
+}
+
+//file handle 
+const handleFile=async(e)=>{
+  
+
+  if (e.target.files[0]===null) return alert('select a file');
+  const storageRef=ref(storge,`images/${file}`)
+    uploadBytes(storageRef, file)
+   .then((snapshot) => {
+     getDownloadURL(snapshot.ref).then((url) => {
+       setFile('')
+     });
+   })
+   .catch((err) => console.log(err));
+
 }
   return (
-    <>
+    <div className="ChatDiv">
  
-   
-   
+    <div className="roomInfoDiv">
+      <FaArrowLeft onClick={()=>handleLeftArrow2()} className="backtoRoomID" size={20}/>
     <h2 className="roomName"> Welcome To :{room.toUpperCase()}</h2>
+    <div></div>
+
+    </div>
+   
      
        {/* total messages */}
 
@@ -80,8 +104,14 @@ const handleLeftArrow2=()=>{
               key={msg.id}
               className={`msg ${msg.uid === auth.currentUser.uid ? "sent" : "received"}`}>
               <img alt="" src={msg.displayImage} />
+              <div className="userName-Text-Div ">
+              <i className={`userName-i ${msg.uid === auth.currentUser.uid ? "sender" : "receiver"}`}>{msg.uid===auth.currentUser.uid ? "You" :msg.user}</i>
               <p className="text"> {msg.text}</p>
+              <i>{console.log(msg.createdAt)}</i>
+                </div>
+              
             </div>
+            
           </div>
         ))}
         </div>
@@ -99,11 +129,14 @@ const handleLeftArrow2=()=>{
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
           />
+          <label className="File" htmlFor="file"> <div className="fileUploadDiv"><svg className="file-Label" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512"><path d="M364.2 83.8c-24.4-24.4-64-24.4-88.4 0l-184 184c-42.1 42.1-42.1 110.3 0 152.4s110.3 42.1 152.4 0l152-152c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-152 152c-64 64-167.6 64-231.6 0s-64-167.6 0-231.6l184-184c46.3-46.3 121.3-46.3 167.6 0s46.3 121.3 0 167.6l-176 176c-28.6 28.6-75 28.6-103.6 0s-28.6-75 0-103.6l144-144c10.9-10.9 28.7-10.9 39.6 0s10.9 28.7 0 39.6l-144 144c-6.7 6.7-6.7 17.7 0 24.4s17.7 6.7 24.4 0l176-176c24.4-24.4 24.4-64 0-88.4z"/></svg></div></label>
+         {/* file Upload */}
+          <input onChange={(e)=>{handleFile(e)}} type="file" id="file"/>
           <button className="msg-send-btn" type="submit">Send</button>
         </form>
       </div>
       
-    </>
+    </div>
   );
 };
 
