@@ -92,7 +92,7 @@ const SignUp = () => {
           <span className="span">
             <FaUser size={15} />
           </span>
-          <input className="input" required type="email" placeholder="Email" onChange={(e)=>setUserMail(e.target.value)}/>
+          <input className="input" required type="email" placeholder="Enter Email" onChange={(e)=>setUserMail(e.target.value)}/>
         </div>
         <br />
         {/* <label>Password</label> */}
@@ -165,8 +165,10 @@ const SignUp = () => {
           </svg>
         </div>
       </div>
+      <div className="SignIn-options-div">
         <p className="SignIn-option">Have an Account?</p>
         <NavLink to={'/'} className="NavLink">Sign In</NavLink>
+      </div>
     </div>
   );
 };

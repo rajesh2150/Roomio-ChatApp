@@ -17,10 +17,13 @@ const Home = () => {
   const history = useNavigate();
   const handleSignOut = async () => {
     await signOut(auth);
+    localStorage.removeItem("user")
+    console.log(localStorage.getItem("user"))
     history("/");
   };
   const roomInputRef=useRef()
-  const [room, setRoom] = useState(null);
+  const [roomId,setRoomId]=useState(roomInputRef.current)
+  const [room, setRoom] = useState(roomId);
 
   //messsage ref
   // const messageRef = collection(db, "chats");
@@ -37,41 +40,57 @@ const Home = () => {
   // })
 
   //handle Send Message
+ 
+  const navigate=useNavigate()
+  
+  if(localStorage.getItem(""))
+  window.location.replace('/home')
+ 
+ 
 
+  
  
   return (
     <div className="homeDiv">
       <div className="Main-Div">
-        <div>
+        <div className="roomio-div">
           
-          <h2 className="chatConnect-h2">Roomio</h2>
+          <h2 className="roomio-h2">Roomio</h2>
         </div>
         <div className="logout-div">
           <p className="p">{user ? user : auth?.currentUser?.email}</p>
-          <img className="userImage" alt="profile" src={userImg ? userImg : displayImage} />
+          
+          <img className="userImage" alt="profile" src={userImg ? userImg : "https://tse2.mm.bing.net/th?id=OIP.sbRjMD2zaP12rWg1bR1PDAHaHa&pid=Api&P=0&h=180}"} />
           <button className="logout-btn" onClick={() => handleSignOut()}>
             Log Out
           </button>
         </div>
       </div>
       {room ? (
-        <Chat room={room}  displayName={displayName} displayImage={displayImage}/>
+        <Chat room={room} setRoom={setRoom}  displayName={displayName} displayImage={displayImage}/>
       ) : (
-        
+        // <CreateRoom roomId={roomId} setRoomId={setRoomId} room={room} setRoom={setRoom}/>
         <div className="roomDiv">
+      
+      <h2>Enter Room ID</h2>
+        <input
+          className="roomInput"
+          type="text"
+          placeholder="Enter/Create Room ID"
+          ref={setRoomId}
+        /><br/>
+        <button className="enterChatBtn" onClick={()=>{room=="" ?alert("please Enter A Valid ID"):setRoom(roomId.value)}} type="submit">Enter Chat</button>
+      </div>
         
-        <h2>Enter Room ID</h2>
-          <input
-            className="roomInput"
-            type="text"
-            placeholder="Enter/Create Room ID"
-            ref={roomInputRef}
-          /><br/>
-          <button className="enterChatBtn" onClick={()=>{room=="" ?alert("please Enter A Valid ID"):setRoom(roomInputRef.current.value)}} type="submit">Enter Chat</button>
-        </div>
       )}
     </div>
   );
 };
 
 export default Home;
+
+export const CreateRoom=({roomId,setRoomId,room,setRoom})=>{
+  return(
+    <div></div>
+  )
+}

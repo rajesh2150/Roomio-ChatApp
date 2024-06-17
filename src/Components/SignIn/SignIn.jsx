@@ -14,11 +14,13 @@ const SignIn = () => {
   const [userMail,setUserMail]=useState('')
   const [password,serPassword]=useState('')
   const [error,setError]=useState('')
+  const [loader, setLoader]=useState(false)
 
 const handleSignIn=async()=>{
   try{
     if(userMail && password) {
       await signInWithEmailAndPassword(auth,userMail,password);
+       localStorage.setItem("user",userMail)
       history('/home')
     }
     else{
@@ -47,8 +49,9 @@ const handleSignUpUsingTwitterAuth=async()=>{
   try{
     console.log('selected Twitter auth')
     await signInWithPopup(auth,twitterAuth)
+    setLoader(true)
     history('/home')
-
+    setLoader(false)
   }
   catch(err){
     console.log(err)
@@ -66,6 +69,14 @@ const handleSignUpUsingFaceBookAuth=async()=>{
   }
 }
 
+const Loader=()=>{
+  return (
+    <center>
+      <p>Please Wait..</p>
+    </center>
+  )
+}
+
   return (
     <div className="signup-div">
       <div className='signup-heading-div'>
@@ -76,7 +87,7 @@ const handleSignUpUsingFaceBookAuth=async()=>{
           <span className="span">
             <FaUser size={15} />
           </span>
-          <input className="SignIn-input" type="text" placeholder="Email" onChange={(e)=>setUserMail(e.target.value)} />
+          <input className="SignIn-input" type="text" placeholder="Enter Email" onChange={(e)=>setUserMail(e.target.value)} />
         </div>
         <div className="SignDiv-Password">
           <span className="span">
@@ -144,6 +155,8 @@ const handleSignUpUsingFaceBookAuth=async()=>{
         <br/>
         <i>Don't have a account?</i>{' '}
         <NavLink to={'/SignUp'} className="NavLink">Sign Up</NavLink>
+        {/* loader */}
+        {loader ? <Loader/> :" "}
     </div>
   )}
 
