@@ -4,7 +4,7 @@ import './MailSended.css'
 const MailSended = () => {
     const history=useNavigate()
     const handleBackToSignIn=()=>{
-        history('/SignIn')
+        history('/')
     }
   return (
     <div className='mailDiv'>
