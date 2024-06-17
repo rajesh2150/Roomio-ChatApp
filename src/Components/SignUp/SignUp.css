@@ -1,8 +1,18 @@
+body{
+    /* background-color:#29313F ; */
+    background-image: url("C:/Users/itsme/Downloads/photo-1535320404287-416e2c6d2b41.avif");
+  }
 .signup-div{
     background-color: transparent;
     width: 300px;
-    height: 500px;
+    height: 440px;
     margin:12% auto;
+    padding: 30px 20px;
+    backdrop-filter:blur(30px);
+    box-shadow:0px 0px 30px rgba(227,228,237,0.37);
+    border:2px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+
     
 }
 @media(min-width:481px){
@@ -10,6 +20,7 @@
         margin: 5.5% auto;
     }
 }
+
 .FormDiv{
     display: flex;
     justify-content: center;
@@ -25,20 +36,22 @@
     margin: 25px;
 }
 
-.SignUp-heading h3{
+.SignUp-heading h2{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0px;
     padding: 0PX;
 }
 .input{
     width: 250px;
-    height: 25px;
+    height: 30px;
     border-top:none ;
     border: none;
     border-bottom: 2px solid black;
     margin: 10px;
     outline: none;
-    
-    
+    border-bottom:none ;
+    padding-left: 10px;
+    border-radius: 10px;
     
 }
 .input:focus{
@@ -50,9 +63,10 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(128, 128, 128, 0.301);
-    width: 25px;
+    width: 28px;
     height: 25px;
-    border-radius: 50%;
+  
+    border-radius: 30px;
 }
 .SignUp-btn{
     width: 250px;
@@ -60,18 +74,21 @@
     border: 1px solid silver;
     border-radius: 25%;
     background-color: violet;
-    padding: 5px;
+    padding: 8px;
     margin-top: 20px;
     margin-bottom: 30px;
-    border-radius: 3px;
+    border-radius: 20px;
     color: white;
     cursor: pointer;
 }
-
+.SignUp-btn:hover{
+    /* background-color: transparent; */
+    /* border-color: violet; */
+    color: black;
+}
  .SignUp-btn:active{
     background-color: violet;
-    color: red;
-    
+    color:black;
     cursor: pointer;
 
 }
@@ -83,6 +100,7 @@
 }
 .Login-Apps-Div svg{
     margin: 8px;
+    margin-bottom: 0px;
 }
 svg{
     margin: 0px;
@@ -95,11 +113,20 @@ svg{
     font-size: small;
     margin-bottom: 0px;
 }
+.SignIn-options-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
 p{
-    margin-top: 50px;
+    margin-top: 0px;
     font-size: 14px;
 }
 .NavLink{
     text-decoration: none;
 
+}
+.NavLink:hover{
+    text-decoration:underline;
 }
