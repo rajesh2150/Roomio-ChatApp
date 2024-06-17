@@ -1,5 +1,5 @@
 .ChatDiv{
-  background-color: rgba(211, 211, 211, 0.471);
+  background-color: #E6E6FA;
 }
 img {
     border-radius: 50%;
@@ -24,6 +24,7 @@ img {
     margin: 0px;
     padding: 5px;
     border: none;
+    font-size: small;
     font-family:sans-serif;  
     color: black;
 }
@@ -103,21 +104,27 @@ img {
     flex-direction: column;
    
   }
+  .msg-time{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+
+  }
   
 .send-msg-div{
     display: flex;
-  
-
     justify-content: center;
     align-items: center;
     width: 100%;
     position: sticky;
     left: 0px;
-    bottom: 5px;
-    margin-bottom: 5px;
+    bottom: 0px;
+    padding-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
-.File-Label{
+.file-label{
   margin: 0px;
+  padding-top: 10px;
+  
   
   
 }
@@ -129,69 +136,89 @@ img {
     border-radius: 20px;
     border: 1px solid black;
     cursor: pointer;
+    padding-left:20px ;
 }
 .send-msg::placeholder{
     padding-left:10px ;
 }
 .msg-send-btn{
     padding: 10px 15px;
-    background-color: violet;
+    background-color: #6265F3;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border: none;
     margin-left: 8px;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
    
 }
 /* //file */
 input[type='file']{
   display: none;
+  margin: 0;
 }
 .fileUploadDiv{
   display: inline;
   justify-content: center;
+
   align-items: center;
   height: 20px;
   width: 20px;
   border-radius: 50% ;
   padding: 3px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10px;
-
+ 
 }
 .file-Label{
-  padding-top: 8px;
+  /* padding-top: -15px; */
   
 }
-
+.imageFile{
+  height: 200px;
+  width: 250px;
+  background-color:transparent ;
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  margin-bottom: 5px;
+  color: black;
+  gap: 5px;
+  
+}
+.Imagefile-img{
+  height: 100%;
+  width: 100%;
+object-fit: fill;
+margin-top: 4px;
+}
   @media (max-width: 775px) {
     .text {
       font-size: 15px;
     }
     .sent {
-      padding: 10px 10px 5px 10px;
+      padding: 5px 5px 5px 5px;
     }
     .received {
-      padding: 10px 10px 5px 10px;
+      padding: 5px 5px 5px 5px;
     }
     img {
       height: 35px;
       margin-top: -10px;
     }
     .send-msg{
-      width: 370px;
+      width: 380px;
     }
   }
   
   @media (max-width: 500px) {
+
     .text {
       font-size: 15px;
     }
     .sent {
-      padding: 1px 7px 5px 7px;
+      padding: 1px 4px 2px 4px;
     }
     .received {
-      padding: 1px 7px 5px 7px;
+      padding: 1px 4px 2px 4px;
     }
     img {
       height: 30px;
@@ -199,6 +226,6 @@ input[type='file']{
       margin-right:2px ;
     }
     .send-msg{
-        width: 220px;
+        width: 240px;
     }
   }

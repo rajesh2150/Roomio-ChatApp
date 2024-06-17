@@ -1,30 +1,46 @@
+.homeDiv{
+  height: 100%;
+  
+  /* background-color: #FFE6F0; */
+}
 .homeDiv .roomDiv{
   margin: auto;
-  margin-top: 10%;
+  margin-top: 8%;
+  background-color: #F8F4FB;
+  /* background-color: #E6F7FF; */
  
   
 }
-.chatConnect-h2{
+.roomio-div{
+  background-color: violet;
+  padding: 5px;
+  border-top-right-radius: 20px;
+  
+}
+.roomio-h2{
   font-family: 'Times New Roman', Times, serif;
   font-size: 300;
-  color: #6A0DAD ;
+  color: white;
   margin-left: 10px;
 }
 .logout-btn {
-padding: 8px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+ padding: 8px;
   cursor: pointer;
-  background-color: violet;
+  background-color: #6265F3;
   border: none;
-  border-radius: 5px;
-  color: black;
+  border-radius: 10px;
+  color: white;
   transition: all 0.5s;
  
 
 }
 .logout-btn:hover{
-    background-color: violet;
+    /* background-color: violet; */
+    background-color: #6265F3;
     color: white;
-    box-shadow: 3px 3px 5px black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.729);
     transition: all 0.5s;
 }
 .Main-Div {
@@ -32,17 +48,26 @@ padding: 8px;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
- height: 90px;
-  background-color:#F5F5F5;
+ /* height: 90px; */
+ padding: 10px;
+  /* background-color:#FFE6F0; */
   position: sticky;
   left: 0px;
   top: 0px;
   z-index: 500;
+  backdrop-filter:blur(60px);
+    box-shadow:0px 0px 30px rgba(227,228,237,0.37);
+    border:2px solid rgba(255,255,255,0.18);
 }
 .logout-div {
   display: flex;
   align-items: center;
   margin:0px 5px;
+}
+.userImage-div{
+  display: flex;
+  flex-direction: column;
+
 }
 .userImage{
     height: 40px;
@@ -50,12 +75,22 @@ padding: 8px;
     margin-top: 6px;
     margin-right: 5px;
     border-radius: 50%;
+    cursor: pointer;
+}
+.profile-span{
+  visibility:hidden;
+  font-size: small;
+  /* color: black; */
+}
+.profile-span:hover{
+  visibility: visible;
+  font-size: small;
 }
 h2{
   cursor: pointer;
 }
 .p{
-    color: #DB4437;
+    color: violet;
     margin: 0px;
     margin-right: 15px;
 }
@@ -78,7 +113,10 @@ h2{
   border-radius:5px;
   border: 1px solid #00B5A4;
   border-color: #00B5A4;
+  padding-left:20px ;
+  
 }
+
 .roomInput::placeholder{
   text-align: center;
 }
