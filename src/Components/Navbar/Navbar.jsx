@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const [user, setUser] = useState("Sign Up");
   return (

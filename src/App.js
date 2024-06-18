@@ -6,8 +6,8 @@ import Home from './Components/Routing/Home/Home';
 import SignIn from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar';
-import { CreateRoom } from './Components/Routing/Home/Home';
+// import Navbar from './Components/Navbar/Navbar';
+// import { CreateRoom } from './Components/Routing/Home/Home';
 // const ForgotPassword = lazy(()=>import('./Components/ForgotPassword/ForgotPassword'))
 function App() {
   return (
