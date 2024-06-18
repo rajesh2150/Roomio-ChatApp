@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "roomio-chatapp",
     "public": "build",
     "ignore": [
       "firebase.json",
